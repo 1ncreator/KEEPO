@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Mulish:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="./booking-shared.js"></script>
+<style>
+  html{scroll-behavior:smooth}
+  body{margin:0;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+  ::selection{background:oklch(0.72 0.15 155);color:oklch(0.16 0.02 250)}
+  @keyframes kFadeText{from{opacity:0}to{opacity:1}}
+  input,select,textarea{font-family:'Mulish',sans-serif}
+  a{color:oklch(0.72 0.15 155)}
+  a:hover{color:oklch(0.6 0.15 155)}
+  .keepo-nav-links{display:flex;align-items:center;gap:26px}
+  .keepo-nav-toggle{display:none;align-items:center;justify-content:center}
+  .keepo-cat-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -18px oklch(0.2 0.02 250 / 0.2)}
+  @media (max-width:1150px){
+    .keepo-nav-links{display:none}
+    .keepo-nav-toggle{display:flex}
+  }
+</style>
+</helmet>
+
+<div style="font-family: 'Mulish',sans-serif; background: oklch(0.99 0.004 90); color: oklch(0.18 0.02 250)">
+
+  <!-- NAV -->
+  <div style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 56px;background:oklch(0.13 0.016 250 / 0.94);backdrop-filter:blur(16px);border-bottom:1px solid oklch(1 0 0 / 0.08)">
+    <a href="KEEPO Landing.dc.html#hometop" style="display:flex;align-items:center;gap:6px;text-decoration:none">
+      <svg width="52" height="60" viewBox="0 0 475 357" style="flex:none">
+        <defs><linearGradient id="keepoGradNavP" x1="0" y1="357" x2="475" y2="0"><stop offset="0%" stop-color="#27d7b0"></stop><stop offset="100%" stop-color="#39e6c2"></stop></linearGradient></defs>
+        <path d="M 282 189 L 224 240 L 222 244 L 223 249 L 316 335 L 328 342 L 339 342 L 349 336 L 389 300 L 393 292 L 392 279 L 378 264 L 299 193 L 290 188 Z" fill="url(#keepoGradNavP)"></path>
+        <path d="M 345 69 L 335 62 L 303 62 L 291 68 L 90 248 L 81 251 L 72 249 L 65 241 L 64 232 L 67 224 L 117 180 L 127 167 L 127 78 L 123 70 L 115 66 L 64 66 L 53 71 L 48 77 L 45 86 L 45 301 L 50 315 L 56 320 L 65 323 L 75 322 L 86 316 L 341 92 L 348 80 Z" fill="url(#keepoGradNavP)"></path>
+      </svg>
+      <div style="display:flex;flex-direction:column;line-height:1.1;gap:4px">
+        <span style="font-family:'Manrope',sans-serif;font-weight:700;font-size:19px;letter-spacing:0.5px;color:oklch(0.97 0.004 90)">KEEPO</span>
+        <span style="font-size:10px;font-style:italic;color:{{ accentColor }}">{{ t.tagline }}</span>
+      </div>
+    </a>
+    <div class="keepo-nav-links">
+      <a href="KEEPO Landing.dc.html#services" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:13.5px;font-weight:600;white-space:nowrap">{{ t.nav.services }}</a>
+      <a href="#pricing" style="position:relative;color:{{ accentColor }};text-decoration:none;font-size:13.5px;font-weight:700;padding-bottom:4px;white-space:nowrap">{{ t.nav.pricing }}
+        <span style="position:absolute;left:0;right:0;bottom:0;height:2px;background:{{ accentColor }};border-radius:2px"></span>
+      </a>
+      <a href="KEEPO Landing.dc.html#why" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:13.5px;font-weight:600;white-space:nowrap">{{ t.nav.why }}</a>
+      <a href="KEEPO Landing.dc.html#reviews" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:13.5px;font-weight:600;white-space:nowrap">{{ t.nav.reviews }}</a>
+      <a href="KEEPO Landing.dc.html#faq" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:13.5px;font-weight:600;white-space:nowrap">{{ t.nav.faq }}</a>
+      <a href="KEEPO Contacts.dc.html" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:13.5px;font-weight:600;white-space:nowrap">{{ t.nav.contact }}</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="display:flex;align-items:center;background:oklch(1 0 0 / 0.08);border:1px solid oklch(1 0 0 / 0.12);border-radius:100px;padding:3px;gap:2px">
+        <sc-for list="{{ langs }}" as="l" hint-placeholder-count="3">
+          <button onClick="{{ l.onClick }}" style="border:none;cursor:pointer;padding:6px 10px;border-radius:100px;font-size:12px;font-weight:700;background:{{ l.bg }};color:{{ l.color }};letter-spacing:0.3px">{{ l.label }}</button>
+        </sc-for>
+      </div>
+      <a href="#book" style="background:{{ accentColor }};color:oklch(0.16 0.02 250);text-decoration:none;font-weight:700;font-size:13.5px;padding:11px 20px;border-radius:100px;white-space:nowrap" style-hover="filter:brightness(0.92)">{{ t.nav.bookNow }}</a>
+      <button class="keepo-nav-toggle" onClick="{{ toggleMobileMenu }}" aria-label="Menu" style="width:38px;height:38px;border-radius:8px;background:oklch(1 0 0 / 0.08);border:1px solid oklch(1 0 0 / 0.12);cursor:pointer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.95 0.004 90)" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+    <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;top:100%;left:0;right:0;background:oklch(0.11 0.014 250 / 0.98);backdrop-filter:blur(16px);border-bottom:1px solid oklch(1 0 0 / 0.08);display:flex;flex-direction:column;padding:12px 24px 20px">
+        <a href="KEEPO Landing.dc.html#services" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:15px;font-weight:600;padding:12px 0;border-bottom:1px solid oklch(1 0 0 / 0.06)">{{ t.nav.services }}</a>
+        <a href="#pricing" style="color:{{ accentColor }};text-decoration:none;font-size:15px;font-weight:700;padding:12px 0;border-bottom:1px solid oklch(1 0 0 / 0.06)">{{ t.nav.pricing }}</a>
+        <a href="KEEPO Landing.dc.html#why" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:15px;font-weight:600;padding:12px 0;border-bottom:1px solid oklch(1 0 0 / 0.06)">{{ t.nav.why }}</a>
+        <a href="KEEPO Landing.dc.html#reviews" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:15px;font-weight:600;padding:12px 0;border-bottom:1px solid oklch(1 0 0 / 0.06)">{{ t.nav.reviews }}</a>
+        <a href="KEEPO Landing.dc.html#faq" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:15px;font-weight:600;padding:12px 0;border-bottom:1px solid oklch(1 0 0 / 0.06)">{{ t.nav.faq }}</a>
+        <a href="KEEPO Contacts.dc.html" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:15px;font-weight:600;padding:12px 0">{{ t.nav.contact }}</a>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- HERO -->
+  <sc-if value="{{ heroCentered }}" hint-placeholder-val="{{ true }}">
+    <div style="background:oklch(0.15 0.018 250);padding:130px 64px 64px;text-align:center">
+      <div style="font-size:13.5px;font-weight:700;letter-spacing:1.5px;color:{{ accentColor }};text-transform:uppercase;margin-bottom:14px">{{ t.hero.eyebrow }}</div>
+      <h1 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,50px);letter-spacing:-1px;color:oklch(0.98 0.004 90);margin:0 0 16px">{{ t.hero.title }}</h1>
+      <p style="font-size:16.5px;color:oklch(0.62 0.02 250);max-width:520px;margin:0 auto">{{ t.hero.sub }}</p>
+    </div>
+  </sc-if>
+  <sc-if value="{{ heroSplit }}" hint-placeholder-val="{{ false }}">
+    <div style="background:oklch(0.15 0.018 250);padding:150px 64px 90px;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center">
+      <div>
+        <div style="font-size:13.5px;font-weight:700;letter-spacing:1.5px;color:{{ accentColor }};text-transform:uppercase;margin-bottom:14px">{{ t.hero.eyebrow }}</div>
+        <h1 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,50px);letter-spacing:-1px;color:oklch(0.98 0.004 90);margin:0 0 16px">{{ t.hero.title }}</h1>
+        <p style="font-size:16.5px;color:oklch(0.62 0.02 250);max-width:440px;margin:0">{{ t.hero.sub }}</p>
+      </div>
+      <div style="border-radius:20px;overflow:hidden;aspect-ratio:4/3;background:repeating-linear-gradient(135deg, oklch(0.22 0.02 250), oklch(0.22 0.02 250) 12px, oklch(0.19 0.02 250) 12px, oklch(0.19 0.02 250) 24px);border:1px solid oklch(1 0 0 / 0.08);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:ui-monospace,monospace;font-size:12.5px;color:oklch(0.7 0.02 250);background:oklch(0.15 0.02 250 / 0.7);padding:8px 16px;border-radius:8px">{{ t.hero.imgLabel }}</span>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- PRICING -->
+  <div id="pricing" style="padding:100px 64px 72px;max-width:1280px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px;margin-bottom:56px">
+      <sc-for list="{{ categories }}" as="cat" hint-placeholder-count="6">
+        <div style="background:oklch(1 0 0);border:1px solid oklch(0.91 0.006 90);border-radius:20px;padding:36px;box-shadow:0 10px 30px -18px oklch(0.2 0.02 250 / 0.12);transition:transform 0.25s,box-shadow 0.25s" class="keepo-cat-card">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+            <div style="flex:none;width:44px;height:44px;border-radius:12px;background:color-mix(in oklch, {{ accentColor }} 12%, transparent);display:flex;align-items:center;justify-content:center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ accentColor }}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <sc-for list="{{ cat.paths }}" as="p" hint-placeholder-count="2">
+                  <path d="{{ p }}"></path>
+                </sc-for>
+              </svg>
+            </div>
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:19px;margin:0">{{ cat.title }}</h3>
+          </div>
+          <div style="display:flex;flex-direction:column">
+            <sc-for list="{{ cat.rows }}" as="row" hint-placeholder-count="4">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-top:1px solid oklch(0.93 0.006 90)">
+                <span style="font-size:14.5px;color:oklch(0.35 0.02 250)">{{ row.label }}</span>
+                <span style="font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;flex:none;padding-left:16px">{{ row.price }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="max-width:900px;margin:0 auto;display:flex;gap:18px;align-items:flex-start;background:color-mix(in oklch, {{ accentColor }} 6%, oklch(0.99 0.004 90));border:1px solid color-mix(in oklch, {{ accentColor }} 24%, transparent);border-radius:20px;padding:28px 32px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{ accentColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M11 12h1v5h1"></path></svg>
+      <p style="font-size:14.5px;color:oklch(0.4 0.02 250);line-height:1.65;margin:0">{{ notice }}</p>
+    </div>
+  </div>
+
+  <!-- BOOKING -->
+  <div id="book" style="background:oklch(0.15 0.018 250);padding:110px 64px;position:relative;overflow:hidden">
+    <div style="max-width:680px;margin:0 auto;position:relative">
+      <div style="text-align:center;margin-bottom:44px">
+        <div style="font-size:13.5px;font-weight:700;letter-spacing:1.5px;color:{{ accentColor }};text-transform:uppercase;margin-bottom:14px">{{ t.booking.eyebrow }}</div>
+        <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);letter-spacing:-1px;margin:0;color:oklch(0.98 0.004 90)">{{ t.booking.title }}</h2>
+      </div>
+      <div style="background:oklch(1 0 0 / 0.06);backdrop-filter:blur(20px);border:1px solid oklch(1 0 0 / 0.12);border-radius:28px;padding:44px;box-shadow:0 40px 90px -24px oklch(0 0 0 / 0.5)">
+        <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:40px 0;text-align:center">
+            <div style="width:56px;height:56px;border-radius:100px;background:color-mix(in oklch, {{ accentColor }} 18%, transparent);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="{{ accentColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+            </div>
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:22px;margin:0 0 10px;color:oklch(0.98 0.004 90)">{{ t.booking.thanksTitle }}</h3>
+            <p style="font-size:15px;color:oklch(0.62 0.02 250);margin:0">{{ t.booking.thanksMsg }}</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ handleSubmit }}" style="display:flex;flex-direction:column;gap:16px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <input required="{{ true }}" value="{{ booking.name }}" onChange="{{ onChange.name }}" placeholder="{{ t.booking.namePh }}" style="padding:15px 18px;border-radius:12px;border:1px solid oklch(1 0 0 / 0.14);font-size:14.5px;outline:none;background:oklch(1 0 0 / 0.05);color:oklch(0.96 0.004 90)">
+              <div style="display:flex;align-items:stretch;border-radius:12px;border:1px solid oklch(1 0 0 / 0.14);overflow:hidden;background:oklch(1 0 0 / 0.05)">
+                <span style="display:flex;align-items:center;padding:0 12px;font-size:14.5px;font-weight:700;color:oklch(0.75 0.02 250);background:oklch(1 0 0 / 0.06);border-right:1px solid oklch(1 0 0 / 0.14)">{{ phonePrefix }}</span>
+                <input required="{{ true }}" type="tel" inputMode="numeric" value="{{ booking.phoneDisplay }}" onChange="{{ onChange.phone }}" placeholder="500 100 200" style="flex:1;min-width:0;padding:15px 14px;border:none;font-size:14.5px;outline:none;background:transparent;color:oklch(0.96 0.004 90)">
+              </div>
+            </div>
+            <input type="email" value="{{ booking.email }}" onChange="{{ onChange.email }}" placeholder="{{ t.booking.emailPh }}" style="padding:15px 18px;border-radius:12px;border:1px solid oklch(1 0 0 / 0.14);font-size:14.5px;outline:none;background:oklch(1 0 0 / 0.05);color:oklch(0.96 0.004 90)">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <dc-import name="KEEPO ServiceSelect" value="{{ booking.service }}" change-handler="{{ handleServiceChange }}" ui-lang="{{ lang }}" accent-color="{{ accentColor }}" variant="dark" placeholder="{{ chooseLabel }}" hint-size="100%,52px"></dc-import>
+              <select value="{{ booking.tier }}" onChange="{{ onChange.tier }}" style="padding:15px 18px;border-radius:12px;border:1px solid oklch(1 0 0 / 0.14);font-size:14.5px;outline:none;background:oklch(1 0 0 / 0.05);color:oklch(0.96 0.004 90)">
+                <sc-for list="{{ t.booking.tierOptions }}" as="tOpt" hint-placeholder-count="3">
+                  <option style="color:oklch(0.18 0.02 250)">{{ tOpt }}</option>
+                </sc-for>
+              </select>
+            </div>
+            <dc-import name="KEEPO DatePicker" value="{{ booking.date }}" change-handler="{{ handleDateChange }}" ui-lang="{{ lang }}" accent-color="{{ accentColor }}" variant="dark" placeholder="{{ datePlaceholder }}" hint-size="100%,52px"></dc-import>
+            <div style="position:relative">
+              <textarea value="{{ booking.message }}" onChange="{{ onChange.message }}" placeholder="" rows="3" style="width:100%;box-sizing:border-box;padding:15px 18px;border-radius:12px;border:1px solid oklch(1 0 0 / 0.14);font-size:14.5px;outline:none;resize:none;font-family:inherit;background:oklch(1 0 0 / 0.05);color:oklch(0.96 0.004 90)"></textarea>
+              <sc-if value="{{ showPhOverlay }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;top:15px;left:18px;right:18px;pointer-events:none;font-size:14.5px;line-height:1.4;color:oklch(0.55 0.02 250);animation:kFadeText .18s ease">{{ activePlaceholder }}</div>
+              </sc-if>
+            </div>
+            <button type="submit" style="background:{{ accentColor }};color:oklch(0.16 0.02 250);border:none;padding:18px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;margin-top:6px" style-hover="filter:brightness(0.92);transform:translateY(-2px)">{{ t.booking.submitBtn }}</button>
+            <p style="font-size:12.5px;color:oklch(0.55 0.02 250);text-align:center;margin:0">{{ t.booking.note }}</p>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="background:oklch(0.12 0.015 250);padding:32px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+    <span style="font-size:13px;color:oklch(0.45 0.02 250)">{{ t.footer.copyright }}</span>
+    <a href="KEEPO Landing.dc.html" style="font-size:13px;color:oklch(0.6 0.15 155);text-decoration:none">{{ t.footer.back }}</a>
+  </div>
+
+  <button onClick="{{ scrollTop }}" aria-label="Back to top" style="position: fixed; right: 28px; bottom: 28px; z-index: 99; width: 52px; height: 52px; border-radius: 100px; background: {{ accentColor }}; border: none; box-shadow: 0 12px 28px -8px oklch(0.2 0.02 250 / 0.4); display: flex; align-items: center; justify-content: center; cursor: pointer" style-hover="filter:brightness(0.92);transform:translateY(-3px)">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.16 0.02 250)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
+  </button>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;oklch(0.72 0.15 155)&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;oklch(0.72 0.15 155)&quot;,&quot;oklch(0.7 0.15 220)&quot;,&quot;oklch(0.7 0.16 30)&quot;,&quot;oklch(0.75 0.14 95)&quot;]},&quot;heroStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;centered&quot;,&quot;options&quot;:[&quot;centered&quot;,&quot;split&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+const PDICT = {
+  pl: {
+    tagline: 'Dbamy o to, co ważne.',
+    nav: { services: 'Usługi', pricing: 'Cennik', why: 'Dlaczego My', reviews: 'Opinie', faq: 'FAQ', contact: 'Kontakt', bookNow: 'Zarezerwuj' },
+    hero: { eyebrow: 'Cennik i rezerwacja', title: 'Cennik', sub: 'Stałe i przejrzyste ceny. Bez ukrytych kosztów.', imgLabel: 'specjalista i sprzęt — zdjęcie' },
+    booking: { eyebrow: 'Rezerwacja online', title: 'Zarezerwuj sprzątanie w 60 sekund.', namePh: 'Imię i nazwisko', phonePh: 'Numer telefonu', emailPh: 'Adres e-mail', messagePh: 'Adres lub coś, o czym powinniśmy wiedzieć? (opcjonalnie)', submitBtn: 'Potwierdź rezerwację', note: 'Ostateczna cena jest potwierdzana na miejscu przed rozpoczęciem pracy.', thanksTitle: 'Rezerwacja przyjęta.', thanksMsg: 'Potwierdzimy termin i ostateczną cenę w ciągu godziny.', tierOptions: ['Mały', 'Średni', 'Duży'] },
+    footer: { copyright: '© 2026 KEEPO. Wszelkie prawa zastrzeżone.', back: '← Powrót do strony głównej' },
+    categories: [
+      { icon: 'car', title: 'Czyszczenie samochodu', rows: [['Mały samochód','299 zł'],['Sedan','329 zł'],['Kombi','349 zł'],['SUV','379 zł'],['Van','449 zł']] },
+      { icon: 'sofa', title: 'Sofy', rows: [['Fotel','45 zł'],['Pufa','30 zł'],['Sofa 2-osobowa','170 zł'],['Sofa 3-osobowa','220 zł'],['Narożnik','280 zł'],['Sofa U','350 zł']] },
+      { icon: 'bed', title: 'Materace', rows: [['90×200','80 zł'],['140×200','100 zł'],['160–180×200','130 zł'],['Druga strona','+40 zł']] },
+      { icon: 'carpet', title: 'Dywany', rows: [['Do 5 m²','25 zł/m²'],['5–10 m²','22 zł/m²'],['Powyżej 10 m²','wycena indywidualna']] },
+      { icon: 'chair', title: 'Krzesła', rows: [['Krzesło','25 zł'],['Fotel','45 zł'],['Krzesło biurowe','35 zł']] },
+      { icon: 'star', title: 'Usługi dodatkowe', rows: [['Usuwanie sierści','30 zł'],['Usuwanie trudnych plam','30 zł'],['Impregnacja','50 zł'],['Ozonowanie','60 zł']] }
+    ],
+    notice: 'Ceny dotyczą standardowego stopnia zabrudzenia. W przypadku bardzo silnych zabrudzeń, sierści zwierząt lub specjalistycznego czyszczenia dodatkowy koszt jest zawsze ustalany z klientem przed rozpoczęciem pracy.',
+    finalCta: { title: 'Gotowy na idealną czystość?', primary: 'Umów wizytę', secondary: 'Skontaktuj się' },
+    services: ['Czyszczenie wnętrza samochodu', 'Czyszczenie tapicerki', 'Czyszczenie sof', 'Czyszczenie materacy', 'Czyszczenie dywanów', 'Meble biurowe']
+  },
+  ua: {
+    tagline: 'Дбаємо про те, що важливо.',
+    nav: { services: 'Послуги', pricing: 'Ціни', why: 'Чому Ми', reviews: 'Відгуки', faq: 'FAQ', contact: 'Контакти', bookNow: 'Забронювати' },
+    hero: { eyebrow: 'Ціни та бронювання', title: 'Ціни', sub: 'Стабільні та прозорі ціни. Без прихованих витрат.', imgLabel: 'фахівець та обладнання — фото' },
+    booking: { eyebrow: 'Онлайн бронювання', title: 'Забронюйте прибирання за 60 секунд.', namePh: "Повне ім'я", phonePh: 'Номер телефону', emailPh: 'Електронна пошта', messagePh: 'Адреса або щось, про що нам слід знати? (необовʼязково)', submitBtn: 'Підтвердити бронювання', note: 'Остаточна ціна підтверджується на місці перед початком роботи.', thanksTitle: 'Бронювання отримано.', thanksMsg: 'Ми підтвердимо час і остаточну ціну протягом години.', tierOptions: ['Малий', 'Середній', 'Великий'] },
+    footer: { copyright: '© 2026 KEEPO. Усі права захищено.', back: '← Повернутися на головну' },
+    categories: [
+      { icon: 'car', title: 'Чищення авто', rows: [['Малий автомобіль','299 zł'],['Седан','329 zł'],['Універсал','349 zł'],['SUV','379 zł'],['Фургон','449 zł']] },
+      { icon: 'sofa', title: 'Дивани', rows: [['Крісло','45 zł'],['Пуф','30 zł'],['Диван 2-місний','170 zł'],['Диван 3-місний','220 zł'],['Кутовий диван','280 zł'],['П-подібний диван','350 zł']] },
+      { icon: 'bed', title: 'Матраци', rows: [['90×200','80 zł'],['140×200','100 zł'],['160–180×200','130 zł'],['Друга сторона','+40 zł']] },
+      { icon: 'carpet', title: 'Килими', rows: [['До 5 м²','25 zł/м²'],['5–10 м²','22 zł/м²'],['Понад 10 м²','індивідуальна оцінка']] },
+      { icon: 'chair', title: 'Стільці', rows: [['Стілець','25 zł'],['Крісло','45 zł'],['Офісне крісло','35 zł']] },
+      { icon: 'star', title: 'Додаткові послуги', rows: [['Видалення шерсті','30 zł'],['Видалення складних плям','30 zł'],['Просочення (захист)','50 zł'],['Озонування','60 zł']] }
+    ],
+    notice: 'Ціни вказані для стандартного рівня забруднення. У разі дуже сильного забруднення, шерсті тварин або спеціалізованого чищення додаткова вартість завжди узгоджується з клієнтом до початку роботи.',
+    finalCta: { title: 'Готові до ідеальної чистоти?', primary: 'Забронювати візит', secondary: "Зв'язатися з нами" },
+    services: ['Чистка салону авто', 'Чистка оббивки', 'Чистка диванів', 'Чистка матраців', 'Чистка килимів', 'Офісні меблі']
+  },
+  en: {
+    tagline: 'We care about what matters.',
+    nav: { services: 'Services', pricing: 'Pricing', why: 'Why Us', reviews: 'Reviews', faq: 'FAQ', contact: 'Contact', bookNow: 'Book Now' },
+    hero: { eyebrow: 'Pricing & Booking', title: 'Pricing', sub: 'Fixed, transparent pricing. No hidden costs.', imgLabel: 'specialist & equipment — photo' },
+    booking: { eyebrow: 'Online Booking', title: 'Book your cleaning in 60 seconds.', namePh: 'Full name', phonePh: 'Phone number', emailPh: 'Email address', messagePh: 'Address or anything we should know? (optional)', submitBtn: 'Confirm Booking', note: 'Final price is confirmed on site before work begins.', thanksTitle: 'Booking requested.', thanksMsg: "We'll confirm your slot and final price within the hour.", tierOptions: ['Small', 'Medium', 'Large'] },
+    footer: { copyright: '© 2026 KEEPO. All rights reserved.', back: '← Back to home' },
+    categories: [
+      { icon: 'car', title: 'Car Cleaning', rows: [['Small car','299 zł'],['Sedan','329 zł'],['Wagon','349 zł'],['SUV','379 zł'],['Van','449 zł']] },
+      { icon: 'sofa', title: 'Sofas', rows: [['Armchair','45 zł'],['Pouf','30 zł'],['2-seat sofa','170 zł'],['3-seat sofa','220 zł'],['Corner sofa','280 zł'],['U-shaped sofa','350 zł']] },
+      { icon: 'bed', title: 'Mattresses', rows: [['90×200','80 zł'],['140×200','100 zł'],['160–180×200','130 zł'],['Other side','+40 zł']] },
+      { icon: 'carpet', title: 'Carpets', rows: [['Up to 5 m²','25 zł/m²'],['5–10 m²','22 zł/m²'],['Over 10 m²','custom quote']] },
+      { icon: 'chair', title: 'Chairs', rows: [['Chair','25 zł'],['Armchair','45 zł'],['Office chair','35 zł']] },
+      { icon: 'star', title: 'Additional Services', rows: [['Pet hair removal','30 zł'],['Tough stain removal','30 zł'],['Fabric protection','50 zł'],['Ozone treatment','60 zł']] }
+    ],
+    notice: 'Prices apply to standard soiling levels. For very heavy soiling, pet hair, or specialized cleaning, any extra cost is always agreed with the client before work begins.',
+    finalCta: { title: 'Ready for the perfect clean?', primary: 'Book a Visit', secondary: 'Get in Touch' },
+    services: ['Car Interior Detailing', 'Upholstery Cleaning', 'Sofa Cleaning', 'Mattress Cleaning', 'Carpet Cleaning', 'Office Furniture']
+  }
+};
+
+const PICON_PATHS = {
+  car: ['M3 13h18l-1.2-4.8A2 2 0 0 0 17.9 7H6.1a2 2 0 0 0-1.9 1.2L3 13z', 'M3 13v3a1 1 0 0 0 1 1h1', 'M20 13v3a1 1 0 0 1-1 1h-1'],
+  sofa: ['M4 12V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3', 'M3 12h18v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4z', 'M5 17v2', 'M19 17v2'],
+  bed: ['M3 10V7a1 1 0 0 1 1-1h4v4', 'M3 10h18v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7z', 'M3 17v2', 'M21 17v2'],
+  carpet: ['M4 5h16v14H4z', 'M7.5 8.5h9v7h-9z'],
+  chair: ['M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3', 'M5 10h14v6a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-6z', 'M5 13H3v3a1 1 0 0 0 1 1h1', 'M19 13h2v3a1 1 0 0 1-1 1h-1'],
+  star: ['M12 3l1.5 6.5L20 11l-6.5 1.5L12 19l-1.5-6.5L4 11l6.5-1.5L12 3z']
+};
+
+class Component extends DCLogic {
+  state = {
+    lang: 'pl',
+    mobileMenuOpen: false,
+    submitted: false,
+    phShow: true,
+    booking: { name: '', phone: '', phoneDisplay: '', email: '', service: '', tier: 'Small', date: '', message: '' }
+  };
+
+  setLang = (lang) => { this.setState({ lang }); try { localStorage.setItem('keepo_lang', lang); } catch (e) {} };
+
+  componentDidMount() {
+    try {
+      const saved = localStorage.getItem('keepo_lang');
+      if (saved && saved !== this.state.lang) this.setState({ lang: saved });
+    } catch (e) {}
+  }
+  toggleMobileMenu = () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen }));
+
+  scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  onChangeField = (field) => (e) => {
+    this.setState(s => ({ booking: { ...s.booking, [field]: e.target.value } }));
+  };
+
+  handlePhoneChange = (e) => {
+    const KB = window.KEEPO_BOOKING_SHARED;
+    const digits = e.target.value.replace(/\D/g, '').slice(0, 9);
+    const formatted = KB ? KB.formatPolishPhone(digits) : digits;
+    this.setState(s => ({ booking: { ...s.booking, phone: digits, phoneDisplay: formatted } }));
+  };
+
+  handleServiceChange = (value) => {
+    this.setState(s => ({ booking: { ...s.booking, service: value }, phShow: false }));
+    clearTimeout(this._phTimer);
+    this._phTimer = setTimeout(() => this.setState({ phShow: true }), 30);
+  };
+
+  handleDateChange = (iso) => {
+    this.setState(s => ({ booking: { ...s.booking, date: iso } }));
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({ submitted: true });
+  };
+
+  renderVals() {
+    const lang = this.state.lang;
+    const t = PDICT[lang];
+    const langMeta = [ { code: 'pl', label: 'PL' }, { code: 'ua', label: 'UA' }, { code: 'en', label: 'EN' } ];
+    return {
+      t,
+      lang,
+      mobileMenuOpen: this.state.mobileMenuOpen,
+      toggleMobileMenu: this.toggleMobileMenu,
+      langs: langMeta.map(m => ({
+        onClick: () => this.setLang(m.code),
+        label: m.label,
+        bg: lang === m.code ? 'oklch(0.72 0.15 155)' : 'transparent',
+        color: lang === m.code ? 'oklch(0.16 0.02 250)' : 'oklch(0.85 0.004 90)'
+      })),
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      booking: this.state.booking,
+      serviceOptions: (window.KEEPO_BOOKING_SHARED ? window.KEEPO_BOOKING_SHARED.getServiceOptions(lang) : []),
+      chooseLabel: window.KEEPO_BOOKING_SHARED ? window.KEEPO_BOOKING_SHARED.getChooseLabel(lang) : '',
+      phonePrefix: window.KEEPO_BOOKING_SHARED ? window.KEEPO_BOOKING_SHARED.PHONE_PREFIX : '+48',
+      activePlaceholder: window.KEEPO_BOOKING_SHARED ? window.KEEPO_BOOKING_SHARED.getPlaceholder(lang, this.state.booking.service) : '',
+      showPhOverlay: this.state.phShow && !this.state.booking.message,
+      datePlaceholder: window.KEEPO_BOOKING_SHARED ? window.KEEPO_BOOKING_SHARED.getDatePlaceholder(lang) : '',
+      handleDateChange: this.handleDateChange,
+      handleServiceChange: this.handleServiceChange,
+      onChange: {
+        name: this.onChangeField('name'),
+        phone: this.handlePhoneChange,
+        email: this.onChangeField('email'),
+        service: this.handleServiceChange,
+        tier: this.onChangeField('tier'),
+        message: this.onChangeField('message')
+      },
+      handleSubmit: this.handleSubmit,
+      scrollTop: this.scrollTop,
+      accentColor: this.props.accentColor ?? 'oklch(0.72 0.15 155)',
+      heroCentered: (this.props.heroStyle ?? 'centered') === 'centered',
+      heroSplit: (this.props.heroStyle ?? 'centered') === 'split',
+      categories: t.categories.map(c => ({ title: c.title, paths: PICON_PATHS[c.icon], rows: c.rows.map(([label, price]) => ({ label, price })) })),
+      notice: t.notice,
+      finalCta: t.finalCta
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl" data-lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KEEPO — Kontakt</title>
+<meta name="description" content="Skontaktuj się z KEEPO — telefon, e-mail, WhatsApp, Telegram lub formularz zgłoszeniowy.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="contacts" style="font-family:'Mulish',sans-serif;background:oklch(0.99 0.004 90);color:oklch(0.18 0.02 250)">
+
+<!-- NAV -->
+<div class="keepo-navbar" style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 56px;background:oklch(0.13 0.016 250 / 0.94);backdrop-filter:blur(16px);border-bottom:1px solid oklch(1 0 0 / 0.08)">
+  <a href="index.html#hometop" style="display:flex;align-items:center;gap:6px;text-decoration:none">
+    <svg width="52" height="60" viewBox="0 0 475 357" style="flex:none">
+      <defs><linearGradient id="keepoGradNavC" x1="0" y1="357" x2="475" y2="0"><stop offset="0%" stop-color="#27d7b0"></stop><stop offset="100%" stop-color="#39e6c2"></stop></linearGradient></defs>
+      <path d="M 282 189 L 224 240 L 222 244 L 223 249 L 316 335 L 328 342 L 339 342 L 349 336 L 389 300 L 393 292 L 392 279 L 378 264 L 299 193 L 290 188 Z" fill="url(#keepoGradNavC)"></path>
+      <path d="M 345 69 L 335 62 L 303 62 L 291 68 L 90 248 L 81 251 L 72 249 L 65 241 L 64 232 L 67 224 L 117 180 L 127 167 L 127 78 L 123 70 L 115 66 L 64 66 L 53 71 L 48 77 L 45 86 L 45 301 L 50 315 L 56 320 L 65 323 L 75 322 L 86 316 L 341 92 L 348 80 Z" fill="url(#keepoGradNavC)"></path>
+    </svg>
+    <div style="display:flex;flex-direction:column;line-height:1.1;gap:4px">
+      <span style="font-family:'Manrope',sans-serif;font-weight:700;font-size:19px;letter-spacing:0.5px;color:oklch(0.97 0.004 90)">KEEPO</span>
+      <span style="font-size:10px;font-style:italic;color:oklch(0.72 0.15 155)" data-i18n="tagline"></span>
+    </div>
+  </a>
+  <div class="keepo-nav-links">
+    <a href="index.html#services" data-i18n="nav.services" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:13.5px;font-weight:600;white-space:nowrap"></a>
+    <a href="pricing.html" data-i18n="nav.pricing" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:13.5px;font-weight:600;white-space:nowrap"></a>
+    <a href="index.html#why" data-i18n="nav.why" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:13.5px;font-weight:600;white-space:nowrap"></a>
+    <a href="index.html#reviews" data-i18n="nav.reviews" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:13.5px;font-weight:600;white-space:nowrap"></a>
+    <a href="index.html#faq" data-i18n="nav.faq" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:13.5px;font-weight:600;white-space:nowrap"></a>
+    <a href="#contact-top" style="position:relative;color:oklch(0.72 0.15 155);text-decoration:none;font-size:13.5px;font-weight:700;padding-bottom:4px;white-space:nowrap"><span data-i18n="nav.contact"></span><span style="position:absolute;left:0;right:0;bottom:0;height:2px;background:oklch(0.72 0.15 155);border-radius:2px"></span></a>
+  </div>
+  <div style="display:flex;align-items:center;gap:14px">
+    <div style="display:flex;align-items:center;background:oklch(1 0 0 / 0.08);border:1px solid oklch(1 0 0 / 0.12);border-radius:100px;padding:3px;gap:2px">
+      <button class="keepo-lang-btn" data-lang-btn="pl" style="border:none;cursor:pointer;padding:6px 10px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:0.3px">PL</button>
+      <button class="keepo-lang-btn" data-lang-btn="ua" style="border:none;cursor:pointer;padding:6px 10px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:0.3px">UA</button>
+      <button class="keepo-lang-btn" data-lang-btn="en" style="border:none;cursor:pointer;padding:6px 10px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:0.3px">EN</button>
+    </div>
+    <a href="#form" style="background:oklch(0.72 0.15 155);color:oklch(0.16 0.02 250);text-decoration:none;font-weight:700;font-size:13.5px;padding:11px 20px;border-radius:100px;white-space:nowrap" data-i18n="nav.bookNow"></a>
+    <button class="keepo-nav-toggle" aria-label="Menu" style="width:38px;height:38px;border-radius:8px;background:oklch(1 0 0 / 0.08);border:1px solid oklch(1 0 0 / 0.12);cursor:pointer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.95 0.004 90)" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
+  </div>
+  <div class="keepo-mobile-menu" style="display:none;position:absolute;top:100%;left:0;right:0;background:oklch(0.11 0.014 250 / 0.98);backdrop-filter:blur(16px);border-bottom:1px solid oklch(1 0 0 / 0.08);flex-direction:column;padding:12px 24px 20px">
+    <a href="index.html#services" data-i18n="nav.services" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:15px;font-weight:600;padding:12px 0;border-bottom:1px solid oklch(1 0 0 / 0.06)"></a>
+    <a href="pricing.html" data-i18n="nav.pricing" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:15px;font-weight:600;padding:12px 0;border-bottom:1px solid oklch(1 0 0 / 0.06)"></a>
+    <a href="index.html#why" data-i18n="nav.why" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:15px;font-weight:600;padding:12px 0;border-bottom:1px solid oklch(1 0 0 / 0.06)"></a>
+    <a href="index.html#reviews" data-i18n="nav.reviews" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:15px;font-weight:600;padding:12px 0;border-bottom:1px solid oklch(1 0 0 / 0.06)"></a>
+    <a href="index.html#faq" data-i18n="nav.faq" style="color:oklch(0.85 0.004 90);text-decoration:none;font-size:15px;font-weight:600;padding:12px 0;border-bottom:1px solid oklch(1 0 0 / 0.06)"></a>
+    <a href="#contact-top" data-i18n="nav.contact" style="color:oklch(0.72 0.15 155);text-decoration:none;font-size:15px;font-weight:700;padding:12px 0"></a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div id="contact-top" style="background:oklch(0.15 0.018 250);padding:150px 64px 100px">
+  <div class="keepo-hero-grid" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center">
+    <div class="fade-in-up">
+      <div style="font-size:13.5px;font-weight:700;letter-spacing:1.5px;color:oklch(0.72 0.15 155);text-transform:uppercase;margin-bottom:16px" data-i18n="hero.eyebrow"></div>
+      <h1 style="font-family:'Manrope',sans-serif;font-weight:800;font-size:clamp(36px,4.8vw,56px);line-height:1.08;letter-spacing:-1px;margin:0 0 22px;color:oklch(0.98 0.004 90)" data-i18n="hero.title"></h1>
+      <p style="font-size:17px;line-height:1.6;color:oklch(0.66 0.02 250);max-width:460px;margin:0 0 36px" data-i18n="hero.sub"></p>
+      <a href="#form" style="display:inline-flex;align-items:center;gap:8px;background:oklch(0.72 0.15 155);color:oklch(0.16 0.02 250);text-decoration:none;font-weight:700;font-size:14.5px;padding:16px 28px;border-radius:100px" data-i18n="hero.cta"></a>
+    </div>
+    <div style="position:relative">
+      <div style="border-radius:24px;overflow:hidden;aspect-ratio:4/3;border:1px solid oklch(1 0 0 / 0.08);box-shadow:0 40px 80px -24px oklch(0 0 0 / 0.5);background:oklch(0.2 0.02 250);display:flex;align-items:center;justify-content:center;color:oklch(0.6 0.02 250);font-size:13px;text-align:center;padding:20px">
+        No hero photo uploaded for this page yet
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT CARDS -->
+<div style="padding:100px 64px;max-width:1280px;margin:0 auto">
+  <div style="text-align:center;max-width:600px;margin:0 auto 56px">
+    <div style="font-size:13.5px;font-weight:700;letter-spacing:1.5px;color:oklch(0.72 0.15 155);text-transform:uppercase;margin-bottom:14px" data-i18n="cardsSection.eyebrow"></div>
+    <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,40px);letter-spacing:-1px;margin:0;color:oklch(0.18 0.02 250)" data-i18n="cardsSection.title"></h2>
+  </div>
+  <div class="keepo-cards-grid" data-contact-cards style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px"></div>
+</div>
+
+<!-- FORM -->
+<div id="form" style="background:oklch(0.15 0.018 250);padding:110px 64px;position:relative;overflow:hidden">
+  <div style="max-width:720px;margin:0 auto;position:relative">
+    <div style="text-align:center;margin-bottom:44px">
+      <div style="font-size:13.5px;font-weight:700;letter-spacing:1.5px;color:oklch(0.72 0.15 155);text-transform:uppercase;margin-bottom:14px" data-i18n="form.eyebrow"></div>
+      <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);letter-spacing:-1px;margin:0;color:oklch(0.98 0.004 90)" data-i18n="form.title"></h2>
+    </div>
+    <div style="background:oklch(1 0 0 / 0.06);backdrop-filter:blur(20px);border:1px solid oklch(1 0 0 / 0.12);border-radius:28px;padding:44px;box-shadow:0 40px 90px -24px oklch(0 0 0 / 0.5)" data-form-wrap>
+      <div data-form-thanks style="display:none;padding:40px 0;text-align:center">
+        <div style="width:56px;height:56px;border-radius:100px;background:color-mix(in oklch, oklch(0.72 0.15 155) 18%, transparent);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(0.72 0.15 155)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+        </div>
+        <h3 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:22px;margin:0 0 10px;color:oklch(0.98 0.004 90)" data-i18n="form.thanksTitle"></h3>
+        <p style="font-size:15px;color:oklch(0.62 0.02 250);margin:0" data-i18n="form.thanksMsg"></p>
+      </div>
+      <form data-booking-form data-form-body style="display:flex;flex-direction:column;gap:16px">
+        <div class="keepo-form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <input required name="name" data-i18n-placeholder="form.namePh" style="padding:15px 18px;border-radius:12px;border:1px solid oklch(1 0 0 / 0.14);font-size:14.5px;outline:none;background:oklch(1 0 0 / 0.05);color:oklch(0.96 0.004 90)">
+          <div style="display:flex;align-items:stretch;border-radius:12px;border:1px solid oklch(1 0 0 / 0.14);overflow:hidden;background:oklch(1 0 0 / 0.05)">
+            <span style="display:flex;align-items:center;padding:0 12px;font-size:14.5px;font-weight:700;color:oklch(0.75 0.02 250);background:oklch(1 0 0 / 0.06);border-right:1px solid oklch(1 0 0 / 0.14)">+48</span>
+            <input required type="tel" inputmode="numeric" data-phone name="phone" placeholder="500 100 200" style="flex:1;min-width:0;padding:15px 14px;border:none;font-size:14.5px;outline:none;background:transparent;color:oklch(0.96 0.004 90)">
+          </div>
+        </div>
+        <input type="email" name="email" data-i18n-placeholder="form.emailPh" style="padding:15px 18px;border-radius:12px;border:1px solid oklch(1 0 0 / 0.14);font-size:14.5px;outline:none;background:oklch(1 0 0 / 0.05);color:oklch(0.96 0.004 90)">
+        <div class="keepo-form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div data-component="service-select" data-variant="dark" data-accent="oklch(0.72 0.15 155)" data-placeholder="" style="position:relative"><input type="hidden" name="service"></div>
+          <input name="city" data-i18n-placeholder="form.cityPh" style="padding:15px 18px;border-radius:12px;border:1px solid oklch(1 0 0 / 0.14);font-size:14.5px;outline:none;background:oklch(1 0 0 / 0.05);color:oklch(0.96 0.004 90)">
+        </div>
+        <div data-component="date-picker" data-variant="dark" data-accent="oklch(0.72 0.15 155)" data-placeholder="" style="position:relative"><input type="hidden" name="date"></div>
+        <textarea name="message" rows="3" style="width:100%;box-sizing:border-box;padding:15px 18px;border-radius:12px;border:1px solid oklch(1 0 0 / 0.14);font-size:14.5px;outline:none;resize:none;font-family:inherit;background:oklch(1 0 0 / 0.05);color:oklch(0.96 0.004 90)"></textarea>
+        <button type="submit" class="keepo-submit-btn dark" style="background:oklch(0.72 0.15 155);color:oklch(0.16 0.02 250);border:none;padding:18px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;margin-top:6px" data-i18n="form.submitBtn"></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE AREA -->
+<div id="area" style="padding:100px 64px;max-width:1280px;margin:0 auto">
+  <div style="text-align:center;max-width:600px;margin:0 auto 40px">
+    <div style="font-size:13.5px;font-weight:700;letter-spacing:1.5px;color:oklch(0.72 0.15 155);text-transform:uppercase;margin-bottom:14px" data-i18n="area.eyebrow"></div>
+    <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,40px);letter-spacing:-1px;margin:0 0 14px;color:oklch(0.18 0.02 250)" data-i18n="area.title"></h2>
+    <p style="font-size:16px;color:oklch(0.5 0.02 250);line-height:1.6;margin:0" data-i18n="area.sub"></p>
+  </div>
+  <div style="border-radius:24px;overflow:hidden;border:1px solid oklch(0.91 0.006 90);box-shadow:0 30px 70px -30px oklch(0.2 0.02 250 / 0.2)">
+    <iframe title="KEEPO service area map" src="https://www.google.com/maps?q=Katowice,Poland&z=11&output=embed" style="width:100%;height:420px;border:none;display:block" loading="lazy"></iframe>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="background:oklch(0.12 0.015 250);padding:32px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+  <span style="font-size:13px;color:oklch(0.45 0.02 250)" data-i18n="footer.copyright"></span>
+  <a href="index.html" style="font-size:13px;color:oklch(0.72 0.15 155);text-decoration:none" data-i18n="footer.back"></a>
+</div>
+
+<button class="keepo-top-btn" aria-label="Back to top" style="position:fixed;right:28px;bottom:28px;z-index:99;width:52px;height:52px;border-radius:100px;background:oklch(0.72 0.15 155);border:none;box-shadow:0 12px 28px -8px oklch(0.2 0.02 250 / 0.4);display:flex;align-items:center;justify-content:center;cursor:pointer">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.16 0.02 250)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
+</button>
+
+<script src="js/booking-shared.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
